@@ -20,6 +20,7 @@ module.exports = {
             channelId: channel.id,
             guildId: interaction.guildId,
             adapterCreator: channel.guild.voiceAdapterCreator,
+            selfDeaf: false,
         });
 
         connection.on(VoiceConnectionStatus.Disconnected, async () => {
