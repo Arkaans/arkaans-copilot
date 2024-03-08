@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { M_CreateJoinChannel, M_TempChannel } = require('../../database/schema');
+const { M_LobbyChannel, M_TempChannel } = require('../../database/lobbytemp');
 
 module.exports = {
     name: "voiceStateUpdate",
@@ -8,7 +8,7 @@ module.exports = {
         newStateChannel = newState.channel;
 
         async function isTempChannel(channelIdInput) {
-            const channelRecord = await M_TempChannel.findOne({ channelId: channelIdInput });
+            const channelRecord = await M_TempChannel.findOne({guildId: newState.guild.id, channelId: channelIdInput});
             if (channelRecord) {
                 return true;
             }
@@ -16,7 +16,7 @@ module.exports = {
         }
 
         async function handleTempChannel(channelIdInput) {
-            const channelRecord = await M_TempChannel.findOne({ channelId: channelIdInput });
+            const channelRecord = await M_TempChannel.findOne({guildId: newState.guild.id, channelId: channelIdInput});
             if (channelRecord) {
                 const channel = newState.guild.channels.cache.get(channelRecord.channelId);
                 if (channel.members.size === 0) {
@@ -28,7 +28,7 @@ module.exports = {
 
         async function handleChannelJoin(channelIdInput) {
             channelIdInput = channelIdInput.toString();
-            const channelRecord = await M_CreateJoinChannel.findOne({ channelId: channelIdInput });
+            const channelRecord = await M_LobbyChannel.findOne({guildId: newState.guild.id, channelId: channelIdInput});
 
             if (channelRecord) {
                 const randomInput = channelRecord.listInput[Math.floor(Math.random() * channelRecord.listInput.length)];
@@ -39,6 +39,7 @@ module.exports = {
                   }).then((channel) => {
                     newState.setChannel(channel);
                     new M_TempChannel({
+                        guildId: newState.guild.id,
                         channelId: channel.id,
                     }).save();
                   });

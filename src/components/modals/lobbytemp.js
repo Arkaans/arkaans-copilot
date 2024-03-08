@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { M_CreateJoinChannel } = require('../../database/schema');
+const { M_LobbyChannel } = require('../../database/lobbytemp.js');
 
 module.exports = {
     data: {
@@ -11,10 +11,9 @@ module.exports = {
 
         let message = ""
 
-        async function handleCreateJoin(channelIdInput, listInput) {
+        async function handleCreateOnJoin(channelIdInput, listInput) {
             channelIdInput = channelIdInput.toString();
-            const channelRecord = await M_CreateJoinChannel.findOne({channelId: channelIdInput});
-            console.log(channelRecord);
+            const channelRecord = await M_LobbyChannel.findOne({guildId: interaction.guildId, channelId: channelIdInput});
 
             if (channelRecord) {
                 message = "This channel already exists in the database. Updating list."
@@ -30,7 +29,8 @@ module.exports = {
                 listInput.split('\n').forEach((item) => {
                     newList.push(item);
                 });
-                const newChannel = new M_CreateJoinChannel({
+                const newChannel = new M_LobbyChannel({
+                    guildId: interaction.guildId,
                     channelId: channelIdInput,
                     listInput: newList,
                 });
@@ -38,7 +38,7 @@ module.exports = {
             }
         }
 
-      await handleCreateJoin(channelInput, listInput);
+      await handleCreateOnJoin(channelInput, listInput);
   
       await interaction.reply({
         content: message,

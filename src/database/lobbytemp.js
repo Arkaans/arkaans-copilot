@@ -2,20 +2,22 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const S_CreateJoinChannel = new Schema({
+const S_LobbyChannel = new Schema({
+    guildId: String,
     channelId: String,
     listInput: Array,
 });
 
-const M_CreateJoinChannel = mongoose.model('CreateJoinChannel', S_CreateJoinChannel);
+const M_LobbyChannel = mongoose.model('LobbyChannel', S_LobbyChannel);
 
 const S_TempChannel = new Schema({
+    guildId: String,
     channelId: String,
 });
 
 const M_TempChannel = mongoose.model('TempChannel', S_TempChannel);
 
 module.exports = {
-    M_CreateJoinChannel,
+    M_LobbyChannel,
     M_TempChannel,
 }; 
