@@ -21,10 +21,23 @@ for (const folder of functionFolder) {
 }
 
 client.handleEvents();
-client.handleCommands();
 client.handleComponents();
 
 client.login(token);
 (async () => {
   await connect(database).catch(console.error);
 })();
+
+client.on("guildCreate", (guild) => {
+  client.handleCommands(guild.id);
+  console.log(`Loaded commands for ${guild.name}`);
+});
+
+client.on("ready", () => {
+  client.guilds.cache.map((guild) => {
+    client.handleCommands(guild.id);
+    console.log(`Loaded commands for ${guild.name}`);
+  });
+});
+
+
