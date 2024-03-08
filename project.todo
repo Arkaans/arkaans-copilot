@@ -1,0 +1,25 @@
+## Client request
+Upgrade the discord bot to be deployable and adaptable on any servers
+
+## Dev goal 
+Implements modularity and good naming convention
+
+### Prototype
+- Connect to database and fetch channel ids and dictionnary words
+
+### Primary functionnalities
+- Create temporary channel when the user move on a target channel (id)
+- Move the user to the temporary channel created
+- Delete the temporary channel when the user leave the channel
+
+### Secondary functionnalities
+- Get random names to the temporary channels, defined by the target channel
+- Use SlashCommands to define what channel is a target channel from id
+- Use SlashCommands to define randoms names for a target channel
+
+### Optionnal functionnalities
+~ Consider using TypeScript
+~ Add a music player feature to the bot
+~ Use SlashCommand to show the bot documentation
+~ Use SlashCommand to create invitation link to the Arkaans Server
+~ Use SlashCommand to spawn coffee
