@@ -13,17 +13,17 @@ const {
 module.exports = {
   data: new SlashCommandBuilder()
       .setName("setchannel")
-      .setDescription("Set Channel")
+      .setDescription("Select a voice channel and configure temporary names to display")
       .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
       .addChannelOption(option =>
           option.setName("channel")
-              .setDescription("The channel to set")
+              .setDescription("Select the channel to configure")
               .addChannelTypes(2)
               .setRequired(true)),
 
   async execute(interaction) {
     
-    const modal = new ModalBuilder().setTitle("Set new channel").setCustomId("setChannelModal");
+    const modal = new ModalBuilder().setTitle("Channel setup").setCustomId("setChannelModal");
     
     const channelRecord = await M_LobbyChannel.findOne({guildId: interaction.guildId, channelId: interaction.options._hoistedOptions[0].value.toString()});
     let databaseInputToString = ""

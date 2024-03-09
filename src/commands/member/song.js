@@ -5,10 +5,10 @@ const ytdl = require('ytdl-core');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("song")
-        .setDescription("Song command")
+        .setDescription("Play a song using a YouTube link")
         .addStringOption(option =>
             option.setName("youtubelink")
-                .setDescription("Lien youtube")
+                .setDescription("YouTube link")
                 .setRequired(true)),
     async execute(interaction) {
         const youtubelink = interaction.options.getString("youtubelink");

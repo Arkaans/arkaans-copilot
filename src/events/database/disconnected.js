@@ -1,4 +1,6 @@
 module.exports = {
   name: "disconnected",
-  execute(client) {},
+  execute(client) {
+    console.log(`Database disconnected`);
+  },
 };

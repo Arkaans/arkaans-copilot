@@ -19,7 +19,21 @@ Implements modularity and good naming convention
 
 ### Optionnal functionnalities
 ~ Consider using TypeScript
-~ Add a music player feature to the bot
-~ Use SlashCommand to show the bot documentation
-~ Use SlashCommand to create invitation link to the Arkaans Server
+- Add a music player feature to the bot
+- Use SlashCommand to create invitation link to the Arkaans Server
 ~ Use SlashCommand to spawn coffee
+- Use SlashCommand to show the bot documentation
+! Delete one setting for channel with ("resetchannel")
+! Delete all configurations for guild id with ("resetall")
+! Set max voice channels per guild id.
+! Command available only for admin in Arkaans eSport server with ("stats") to display number of servers using copilot and number of entry in database
+
+
+% efe
+# frfr
+- rfrf
+x erf
+~ frfr
+? defef
+! fefzefz
+!! fezfzefzef

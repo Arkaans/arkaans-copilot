@@ -1,4 +1,15 @@
 require("dotenv").config();
+
+console.clear();
+const error = '\x1b[31m';
+const warning = '\x1b[33m';
+const trace = '\x1b[36m';
+const handle = '\x1b[33m';
+const reset = '\x1b[0m';
+const info = '\x1b[32m';
+
+console.log(error, `=> STARTING DISCORD BOT <=`, reset);
+console.log(warning, `NAME: Arkaans Copilot`, reset);
 const { token, database } = process.env;
 const { connect } = require("mongoose");
 const { Client, Collection } = require("discord.js");
@@ -34,10 +45,13 @@ client.on("guildCreate", (guild) => {
 });
 
 client.on("ready", () => {
+  
+
+  console.log(trace, `=> HANDLING DISCORD BOT <=`, reset);
+  console.log(info, `Logged in as ${client.user.tag}`, reset);
+  console.log(trace, `=> HANDLING GUILDS COMMANDS <=`, reset);
   client.guilds.cache.map((guild) => {
     client.handleCommands(guild.id);
-    console.log(`Loaded commands for ${guild.name}`);
+    console.log(`|- Loaded commands for ${guild.name}`);
   });
 });
-
-

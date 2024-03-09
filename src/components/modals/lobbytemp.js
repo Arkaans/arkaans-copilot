@@ -16,7 +16,7 @@ module.exports = {
             const channelRecord = await M_LobbyChannel.findOne({guildId: interaction.guildId, channelId: channelIdInput});
 
             if (channelRecord) {
-                message = "This channel already exists in the database. Updating list."
+                message = `<#${channelIdInput}> has been updated:\n${listInput}`
                 let newList = [];
                 listInput.split('\n').forEach((item) => {
                     newList.push(item);
@@ -24,7 +24,7 @@ module.exports = {
                 channelRecord.listInput = newList;
                 channelRecord.save();
             } else {
-                message = "This channel does not exist in the database. Creating new channel."
+                message = `<#${channelIdInput}> is ready, it will create temporary channels with the following names:\n${listInput}`
                 let newList = [];
                 listInput.split('\n').forEach((item) => {
                     newList.push(item);
