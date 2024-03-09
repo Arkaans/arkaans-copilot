@@ -9,13 +9,13 @@ const {
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('stats')
-        .setDescription('Simple command')
+        .setDescription('Display stats about Arkaans Copilot')
         .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
     async execute(interaction, client) {
         
         const button = new ButtonBuilder()
           .setCustomId("ephemeralStatsButton")
-          .setLabel("Post the stats in the channel")
+          .setLabel("Post stats")
           .setStyle(ButtonStyle.Primary);
 
         if(interaction.user.id == "387605378063663105"){
