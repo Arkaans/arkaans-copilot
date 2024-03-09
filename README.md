@@ -67,4 +67,4 @@ Contributions to Arkaans Copilot are welcome! Feel free to submit bug reports, f
 
 ### License
 
-This project is licensed under the [MIT License](#).
+This project is licensed under the [MIT License](https://github.com/Boutzi/arkaans-copilot/blob/main/LICENSE).
