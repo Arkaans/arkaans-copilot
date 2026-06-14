@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
+    "target": "es5",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "rootDir": "./src"
+  },
+  "include": ["src/**/*.ts", ".env"],
+  "exclude": ["node_modules"],
+  "typeRoots": ["./node_modules/@types", "./node_modules/@discordjs/typings"]
+}
