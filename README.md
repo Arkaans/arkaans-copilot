@@ -10,7 +10,7 @@
 [![Prisma](https://img.shields.io/badge/Prisma-7.x-2D3748?style=flat-square&logo=prisma&logoColor=white)](https://www.prisma.io/)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](./LICENSE)
 
-[Documentation](https://copilot.arkaans.com) · [Invite the bot](https://discord.com/oauth2/authorize?client_id=927699980985192449&permissions=8&scope=bot) · [Arkaans Discord](https://discord.gg/BgRwHfK)
+[Documentation](https://copilot.arkaans.com) · [Invite the bot](https://discord.com/oauth2/authorize?client_id=927699980985192449&permissions=8&scope=bot) · [Arkaans Discord server](https://discord.gg/BgRwHfK)
 
 </div>
 
@@ -165,6 +165,7 @@ Managed via GitHub Actions. The Docker image is published to GitHub Container Re
 
 - [ ] Monitoring (Sentry)
 - [ ] Web dashboard for guild admins
+- [ ] Internationalization (i18n) — multi-language support via i18next
 
 ---
 

@@ -12,10 +12,10 @@ CREATE TABLE "source_channel"(
     "id" UUID NOT NULL,
     "discord_id" VARCHAR(255) NOT NULL,
     "source_channel_name" VARCHAR(255) NOT NULL,
+    "name_list" TEXT[] NOT NULL,
     "guild_id" VARCHAR(255) NOT NULL,
     "created_at" TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL,
-    "updated_at" TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL,
-    "name_list" TEXT[] NOT NULL
+    "updated_at" TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL
 );
 ALTER TABLE
     "source_channel" ADD PRIMARY KEY("id");
@@ -33,6 +33,9 @@ CREATE TABLE "welcome_config"(
     "target_channel_id" VARCHAR(255) NOT NULL,
     "target_channel_name" VARCHAR(255) NOT NULL,
     "background_url" VARCHAR(255) NOT NULL,
+    "is_active" BOOLEAN NOT NULL,
+    "hex_color" VARCHAR(255) NOT NULL,
+    "welcome_message" VARCHAR(255) NOT NULL,
     "guild_id" VARCHAR(255) NOT NULL,
     "created_at" TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL,
     "updated_at" TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL
